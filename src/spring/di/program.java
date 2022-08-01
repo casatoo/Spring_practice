@@ -11,8 +11,8 @@ public class program {
 	public static void main(String[] args) {
 		
 		Exam exam = new NewlecExam();
-		//ExamConsole console = new InlineExamConsole(exam);
-		ExamConsole console = new GridExamConsole(exam);
+		ExamConsole console = new InlineExamConsole(exam);  //DI
+		//ExamConsole console = new GridExamConsole(exam);
 		console.print();
 	}
 
