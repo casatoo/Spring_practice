@@ -19,6 +19,7 @@ public class program {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		// 호출방법 중에 classpathxml 방식을 많이 씀
 		// 다른 방법으로는 경로지정방식, 웹주소로 호출하는 방식 등등 이 있음
+		
 		//ExamConsole console = (ExamConsole) context.getBean("console");
 		ExamConsole console = context.getBean(ExamConsole.class);
 		console.print();
