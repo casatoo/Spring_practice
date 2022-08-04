@@ -7,6 +7,8 @@ import spring.di.entity.Exam;
 
 public class InlineExamConsole implements ExamConsole {
 	
+	@Autowired(required=false)
+	@Qualifier("exam1")
 	private Exam exam;
 	
 	public InlineExamConsole() {
@@ -19,12 +21,13 @@ public class InlineExamConsole implements ExamConsole {
 
 	@Override
 	public void print() {
-		System.out.printf("total is %d, avg is %f\n",exam.total(),exam.avg());
-
+		if(exam == null) {
+			System.out.printf("total is %d, avg is %f\n",0,0.0);
+		}else {
+			System.out.printf("total is %d, avg is %f\n",exam.total(),exam.avg());
+		}
 	}
 	
-	@Autowired
-	@Qualifier("exam1")
 	@Override
 	public void setExam(Exam exam) {
 		this.exam = exam;
