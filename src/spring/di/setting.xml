@@ -21,12 +21,11 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
-	<context:component-scan base-package="spring.di.ui"/>
-	<context:component-scan base-package="spring.di.entity" />
+	<context:component-scan base-package="spring.di.ui , spring.di.entity"/>
 	<!-- <context:annotation-config /> -->
 	<!--Exam exam = new NewlecExam(); -->
-	<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1" />
-	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="20" p:math="10" p:com="30" />
+	<!--<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1" />-->
+	<!--  <bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="20" p:math="10" p:com="30" />-->
 	<!-- 생성자를 사용해서 값을 넣는 방식 <bean id="exam" class="spring.di.entity.NewlecExam"> 
 		<constructor-arg name="kor" value="10"/> <constructor-arg name="eng" value="20"/> 
 		<constructor-arg index="2" value="30"/> <constructor-arg index="3" value="40"/> 
@@ -36,11 +35,10 @@
 		<property name="eng" value="10"></property> <property name="math" value="10"></property> 
 		<property name="com" value="10"></property> </bean> -->
 	<!--ExamConsole console = new GridExamConsole(); -->
-	<bean id="console" class="spring.di.ui.InlineExamConsole">
+	<!-- <bean id="console" class="spring.di.ui.InlineExamConsole"/> -->
 		<!--console.setExam(exam); -->
 		<!-- <property name="exam" ref="exam"></property> -->
-		
-	</bean>
+
 	
 	<!--exams.add(new NewlecExam(1,1,1,1)); -->
 	<!-- <util:list id="exams" list-class="java.util.ArrayList">
