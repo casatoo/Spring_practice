@@ -27,12 +27,23 @@
 	<bean id="logBeforeAdvice" class="spring.AOP.advice.LogBeforeAdvice"/>
 	<bean id="logAfterReturningAdvice" class="spring.AOP.advice.LogAfterReturningAdvice"/>
 	<bean id="logAfterThrowingAdvice" class="spring.AOP.advice.LogAfterThrowingAdvice"/>
+	
+	<bean id="classicPointCut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="total"/>
+	</bean>
+	
+	<bean id="classBeforeAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="logBeforeAdvice"/>
+		<property name="pointcut" ref="classicPointCut"/>
+	</bean>
+	
+	
 	<bean id="exam" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="target"/>
 		<property name="interceptorNames">
 		<list>
 			<value>logAroundAdvice</value>
-			<value>logBeforeAdvice</value>
+			<value>classBeforeAdvisor</value>
 			<value>logAfterReturningAdvice</value>
 			<value>logAfterThrowingAdvice</value>
 		</list>
